@@ -14,6 +14,7 @@ export default [
       "prefer-const": ["error", { ignoreReadBeforeAssign: true }],
     },
   },
+  
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
 ];
