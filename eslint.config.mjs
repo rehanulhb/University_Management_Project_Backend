@@ -12,9 +12,14 @@ export default [
       eqeqeq: "off",
       "no-unused-vars": "error",
       "prefer-const": ["error", { ignoreReadBeforeAssign: true }],
+      "no-unused-expressions": "error",
+      "no-undef": "error"
+      
     },
+    
   },
   
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
 ];
+

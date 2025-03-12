@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "lint:fix" : "npx eslint src --fix",
+    "lint:fix": "npx eslint src --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsc --watch",
     "lint": "eslint src --ext .js,.ts .",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "format": "prettier --ignore-path .gitignore --write \"./src/ **/*.+(js|ts|json)\"",
     "tsc": "tsc"
   },
   "keywords": [],
@@ -28,7 +28,9 @@
     "@typescript-eslint/eslint-plugin": "^8.26.1",
     "@typescript-eslint/parser": "^8.26.1",
     "eslint": "^9.22.0",
+    "eslint-config-prettier": "^10.1.1",
     "globals": "^16.0.0",
+    "prettier": "^3.5.3",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.26.1"
   }
