@@ -5,7 +5,9 @@ const router = express.Router()
 
 //Will Call Controller
 router.post('/create-student', StudnetControllers.createStudent)
-router.get('/', StudnetControllers.getAllStudents)
+
 router.get('/:studentId', StudnetControllers.getSingleStudent)
+router.delete('/:studentId', StudnetControllers.deleteStudent)
+router.get('/', StudnetControllers.getAllStudents)
 
 export const StudentRoutes = router
