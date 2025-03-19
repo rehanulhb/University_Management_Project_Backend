@@ -7,8 +7,8 @@ import {
   TLocalGuardian,
   TStudent,
   TUserName,
-} from './student/student.interface'
-import config from '../config'
+} from './student.interface'
+import config from '../../config'
 
 const userNameSchema = new Schema<TUserName>({
   firstName: {
