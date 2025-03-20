@@ -1,7 +1,11 @@
-import { Request, Response } from 'express'
+import { NextFunction, Request, Response } from 'express'
 import { UserServices } from './user.service'
 
-const createStudent = async (req: Request, res: Response) => {
+const createStudent = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
   try {
     //Creating a schema Validation using zod
 
@@ -14,27 +18,14 @@ const createStudent = async (req: Request, res: Response) => {
 
     const result = await UserServices.createStudentIntoDB(password, studentData)
 
-    // if (error) {
-    //   res.status(500).json({
-    //     success: false,
-    //     message: 'Something went wrong',
-    //     error: error.details,
-    //   })
-    // }
-    // Will Call Service Function to send this data
-
     // Send Response
     res.status(200).json({
       success: true,
       message: 'Student is Created Successfully',
       data: result,
     })
-  } catch (err: any) {
-    res.status(500).json({
-      success: false,
-      message: err.message || 'Something went wrong',
-      error: err,
-    })
+  } catch (err) {
+    next(err)
   }
 }
 
