@@ -17,6 +17,7 @@ export default [
       'no-unused-expressions': 'error',
       'no-undef': 'error',
       'no-console': 'warn',
+      '@typescript-eslint/no-explicit-any': 'error',
     },
     globals: {
       process: 'readonly',
