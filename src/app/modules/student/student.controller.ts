@@ -1,8 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
 import { StudentServices } from './student.service'
-//import Joi from 'joi'
-//import studentValidationSchema from './student.validation'
-import { z } from 'zod'
 import sendResponse from '../../utils/sendResponse'
 import httpStatus from 'http-status'
 
