@@ -2,30 +2,20 @@ import { NextFunction, Request, RequestHandler, Response } from 'express'
 import { UserServices } from './user.service'
 import sendResponse from '../../utils/sendResponse'
 import httpStatus from 'http-status'
+import catchAsync from '../../utils/catchAsync'
 
-const createStudent: RequestHandler = async (req, res, next) => {
-  try {
-    //Creating a schema Validation using zod
+const createStudent = catchAsync(async (req, res, next) => {
+  const { password, student: studentData } = req.body
 
-    const { password, student: studentData } = req.body
-    //Data validation using Joi
-    //const { error, value } = studentValidationSchema.validate(studentData)
+  const result = await UserServices.createStudentIntoDB(password, studentData)
 
-    //Data validation using Zod
-    // const zodparsedData = studentValidationSchema.parse(studentData)
-
-    const result = await UserServices.createStudentIntoDB(password, studentData)
-
-    sendResponse(res, {
-      statusCode: httpStatus.OK,
-      success: true,
-      message: 'Student is Created Successfully',
-      data: result,
-    })
-  } catch (err) {
-    next(err)
-  }
-}
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Student is Created Successfully',
+    data: result,
+  })
+})
 
 export const UserControllers = {
   createStudent,
